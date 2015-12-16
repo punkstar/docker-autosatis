@@ -1,0 +1,7 @@
+{
+  "require": {
+    "composer/satis": "^1",
+    "twig/twig": "~1.0"
+  },
+  "minimum-stability": "dev"
+}

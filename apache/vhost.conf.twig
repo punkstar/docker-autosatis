@@ -1,0 +1,17 @@
+<VirtualHost *:80>
+    ServerName {{ virtual_host }}
+    DocumentRoot /var/www/html
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    <Directory /var/www/html>
+        RewriteEngine On
+
+        {% for api_key in api_keys %}
+            RewriteCond %{HTTP:X-Api-Key} !^{{ api_key }}$
+        {% endfor %}
+
+        RewriteRule ^(.*)$ - [F,L]
+    </Directory>
+</VirtualHost>

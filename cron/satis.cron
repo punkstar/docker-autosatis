@@ -1,0 +1,1 @@
+* * * * * root bash /satis/bin/refresh.sh >> /var/log/cron.log
